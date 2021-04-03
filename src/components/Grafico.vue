@@ -12,11 +12,11 @@ am4core.useTheme(am4themes_animated);
 
 
 export default {
-  name: 'HelloWorld',
+  name: 'Grafico',
   mounted() {
     let chart = am4core.create(this.$refs.chartdiv, am4charts.XYChart);
 
-    chart.paddingRight = 10;
+    chart.paddingRight = 20;
 
     let data = [];
     let visits = 10;
