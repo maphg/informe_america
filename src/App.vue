@@ -1,9 +1,10 @@
 <template>
   <div id="nav">
-    <router-link to="/">América</router-link> |
-    <router-link to="/rm">RM</router-link>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/rm">RM</router-link> |
+    <router-link to="/america">America</router-link>
+    <router-view/>
   </div>
-  <router-view/>
 </template>
 
 <style>
@@ -33,8 +34,9 @@
 }
 
 body{
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
   background-color: #EAEBF1;
 }
 </style>

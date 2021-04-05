@@ -134,7 +134,7 @@ export default {
     const fechaa = ref("2021-03-31")
     return {
       ...useFetch(
-        `https://www.maphg.com/america/php/api-reportes-incidencias.php?action=tiemposIncidencias&idDestino=10&idUsuario=1&fechaInicio=${fechade}&fechaFin=${fechaa}`
+        `https://www.maphg.com/america/php/api-reportes-incidencias.php?action=tiemposIncidencias&idDestino=10&idUsuario=1&fechaInicio=2021-03-30&fechaFin=2021-03-31`
       ),fechade,fechaa
     };
   },

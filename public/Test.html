@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/informe_america/node_modules/tailwindcss/dist/tailwind.css">
+  <title>example</title>
+</head>
+<body>
+  <h1 class="bg-blue-200">sdfsdf</h1>
+  <div v-for="(datos, a) in arrayData" :key="a" class="flex flex-wrap justify-start items-start flex-none mb-4 border-4 w-full">
+    <div v-for="(datos2, b) in arrayData[a]" :key="b" class="flex flex-col justify-start items-start w-full bg-green-400">
+      <!-- COMPONENTE SECCION -->
+      <div class="flex justify-center items-center bg-red-300 w-1/2">
+        <!-- Icono seccion -->
+        <div class="w-16 h-16 rounded-md shadow flex justify-center items-center mr-4 flex-none" :class="datos2.seccion.toLowerCase()">
+          <h1 class="truncate font-semibold">{{datos2.seccion}}</h1>
+        </div>
+        <!-- Icono seccion -->
+
+        <!-- Info de la seccion -->
+        <div class="flex justify-center items-center rounded-2xl bg-white shadow flex-none">    
+            <div class="flex flex-col items-center justify-center p-4">
+              <img class="w-4" src="..\assets\incidencias.svg" alt="">
+              <h1 class="font-semibold text-2xl mt-2 truncate">{{234}}</h1>
+              <h1 class="font-semibold text-xs uppercase">Incidencias</h1>
+            </div>
+            <div class="flex flex-col items-center justify-center p-4">
+              <img class="w-4" src="..\assets\pen.svg" alt="">
+              <h1 class="font-semibold text-2xl mt-2 truncate">{{234}}</h1>
+              <h1 class="font-semibold text-xs uppercase">Pendientes</h1>
+            </div>
+            <div class="flex flex-col items-center justify-center p-4">
+              <img class="w-4" src="..\assets\sol.svg" alt="">
+              <h1 class="font-semibold text-2xl mt-2 truncate">{{234}}</h1>
+              <h1 class="font-semibold text-xs uppercase">Resueltas</h1>
+            </div>
+            <div class="flex flex-col items-center justify-center p-4">
+              <img class="w-4" src="..\assets\comentarios.svg" alt="">
+              <h1 class="font-semibold text-2xl mt-2 truncate">{{234}}</h1>
+              <h1 class="font-semibold text-xs uppercase">comentarios</h1>
+            </div>
+            <div class="flex flex-col items-center flex-none justify-center p-4">
+              <img class="w-4" src="..\assets\mupen.svg" alt="">
+              <h1 class="font-semibold text-2xl mt-2 truncate">{{234}}</h1>
+              <h1 class="font-semibold text-xs">µ PENDIENTES</h1>
+            </div>
+            <div class="flex flex-col items-center flex-none justify-center p-4">
+              <img class="w-4" src="..\assets\musol.svg" alt="">
+              <h1 class="font-semibold text-2xl mt-2 truncate">{{234}}</h1>
+              <h1 class="font-semibold text-xs">µ SOLUCIONADOS</h1>
+            </div>       
+        </div>
+        <!-- Info de la seccion -->
+
+      </div>
+      <!-- COMPONENTE SECCION -->
+    </div>
+  </div>
+</body>
+</html>
