@@ -56,16 +56,34 @@
 
         </div><!-- Contenedor datos destino -->
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-0 justify-items-center">
-            <area-chart :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'Pendientes', data: {'2017-01-01 00:00:00 -0800': 1, '2017-01-02 00:00:00 -0800': 8}},{name: 'En proceso', data: {'2017-01-01 00:00:00 -0800': 23, '2017-01-02 00:00:00 -0800': 4}}, {name: 'Solucionado', data: {'2017-01-01 00:00:00 -0800': 5, '2017-01-02 00:00:00 -0800': 3}}]"></area-chart>
-            <pie-chart :colors="['#fc8181','#f6e05e','#68d391']" :data="[['Incidencias', 44], ['Preventivos', 23], ['Poyectos', 23]]"></pie-chart>
-            <div class="w-full py-4 grid grid-cols-2 mt-4 md:mt-0 gap-0 justify-items-center">
-              <div v-for="destinos in 12" :key="destinos" class="grid grid-cols-3 gap-0 justify-items-center"><!-- Media tiempo Incidencias en solucionadas -->
-                <h1 class="text-xl leading-none font-semibold">RM</h1>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-0 justify-items-center">
+            <area-chart class="md:col-span-2" :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'Pendientes', data: {'2017-01-01 00:00:00 -0800': 1, '2017-01-02 00:00:00 -0800': 8}},{name: 'En proceso', data: {'2017-01-01 00:00:00 -0800': 23, '2017-01-02 00:00:00 -0800': 4}}, {name: 'Solucionado', data: {'2017-01-01 00:00:00 -0800': 5, '2017-01-02 00:00:00 -0800': 3}}]"></area-chart>
+            <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
+              <h1 class="mb-2 font-semibold">Ranking creadas</h1>
+              <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"><!-- Media tiempo Incidencias en solucionadas -->
+                <h1 class="leading-none font-semibold">{{destinos}}</h1>
+                <h1 class="leading-none font-semibold">RM</h1>
+                <img src="../assets/incidencias.svg" class="w-4 mb-1" alt="">
+                <h2 class="leading-none font-semibold">2514</h2>
+              </div>
+            </div>
+            <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
+              <h1 class="mb-2 font-semibold">Ranking solucionadas</h1>
+              <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"><!-- Media tiempo Incidencias en solucionadas -->
+                <h1 class="leading-none font-semibold">{{destinos}}</h1>
+                <h1 class="leading-none font-semibold">RM</h1>
+                <img src="../assets/sol.svg" class="w-4 mb-1" alt="">
+                <h2 class="leading-none font-semibold">5485</h2>
+              </div>
+            </div>
+            <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
+              <h1 class="mb-2 font-semibold">Ranking µ tiempo solución</h1>
+              <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"><!-- Media tiempo Incidencias en solucionadas -->
+                <h1 class="leading-none font-semibold">{{destinos}}</h1>
+                <h1 class="leading-none font-semibold">RM</h1>
                 <img src="../assets/musol.svg" class="w-4 mb-1" alt="">
-                <h1 class="text-lg leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
-            </div><!-- Media tiempo Incidencias en solucionadas -->
-
+                <h2 class="leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h2>
+              </div>
             </div>
         </div>
 
@@ -126,6 +144,19 @@ export default {
 }
 </script>
 <style scoped>
+.ranking{
+  font-size: 15px;
+}
+
+
+.destinoactual{
+  color: #fc8181;
+ font-size: 20px;
+ border-width: 3px;
+ border-color: #f6e05e;
+ border-radius: 10px;
+ padding: 4px;
+}
 
 .zia {
   --text-opacity: 1;
