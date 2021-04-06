@@ -56,44 +56,54 @@
 
         </div><!-- Contenedor datos destino -->
 
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-0 justify-items-center">
+           <area-chart :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'Pendientes', data: {'2017-01-01 00:00:00 -0800': 1, '2017-01-02 00:00:00 -0800': 8}},{name: 'En proceso', data: {'2017-01-01 00:00:00 -0800': 23, '2017-01-02 00:00:00 -0800': 4}}, {name: 'Solucionado', data: {'2017-01-01 00:00:00 -0800': 5, '2017-01-02 00:00:00 -0800': 3}}]"></area-chart>
+          <pie-chart :colors="['#fc8181','#f6e05e','#68d391']" :data="[['Incidencias', 44], ['Preventivos', 23], ['Poyectos', 23]]"></pie-chart>
+          <line-chart :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'MC', data: {'2017-01-01': 1, '2017-01-02': 8}},{name: 'MP', data: {'2017-01-01': 23, '2017-01-02': 4}}]"></line-chart>
+        </div>
+
         <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-3  mt-4"><!-- Contenedor principal todas las secciones-->
 
-            <div class="flex w-full bg-white shadow-sm rounded p-2 items-center justify-center" v-for="item in 12" :key="item"><!-- contenedor de seccion-->
-                <div class="w-10 h-10 rounded flex items-center justify-center zic flex-none"><!-- icono seccion-->
+            <div class=" w-full bg-white shadow-sm rounded p-2 flex flex-col items-center justify-center" v-for="item in 12" :key="item"><!-- contenedor de seccion-->
+                <div class="flex w-full ">
+                  <div class="w-10 h-10 rounded flex items-center justify-center zic flex-none"><!-- icono seccion-->
                     <h1>ZIC</h1>
-                </div><!-- icono seccion-->
-                <div class="w-full h-full flex items-end justify-start flex-wrap"><!-- datos de la seccion-->
-                    <div class="w-1/5 flex flex-col justify-start items-center"><!-- incidencias creadas -->
-                        <img src="../assets/incidencias.svg" class="h-6 mb-1" alt="">
-                        <h1 class="text-xs leading-none font-semibold">1420</h1>
-                        <h1 class="text-xxs leading-none">Creadas</h1>
-                    </div><!-- incidencias creadas -->
-                    <div class="w-1/5 flex flex-col justify-start items-center"><!-- Incidencias en proceso acumuladas -->
-                        <img src="../assets/pen.svg" class="h-6 mb-1" alt="">
-                        <h1 class="text-xs leading-none font-semibold">555</h1>
-                        <h1 class="text-xxs leading-none">En proceso</h1>
-                    </div><!-- Incidencias en proceso acumuladas -->
+                  </div><!-- icono seccion-->
+                  <div class="w-full h-full flex items-end justify-start flex-wrap"><!-- datos de la seccion-->
+                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- incidencias creadas -->
+                          <img src="../assets/incidencias.svg" class="h-6 mb-1" alt="">
+                          <h1 class="text-xs leading-none font-semibold">1420</h1>
+                          <h1 class="text-xxs leading-none">Creadas</h1>
+                      </div><!-- incidencias creadas -->
+                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- Incidencias en proceso acumuladas -->
+                          <img src="../assets/pen.svg" class="h-6 mb-1" alt="">
+                          <h1 class="text-xs leading-none font-semibold">555</h1>
+                          <h1 class="text-xxs leading-none">En proceso</h1>
+                      </div><!-- Incidencias en proceso acumuladas -->
 
-                    <div class="w-1/5 flex flex-col justify-start items-center"><!-- Incidencias resueltas -->
-                        <img src="../assets/sol.svg" class="h-6 mb-1" alt="">
-                        <h1 class="text-xs leading-none font-semibold">555</h1>
-                        <h1 class="text-xxs leading-none">Solucionadas</h1>
-                    </div><!-- Incidencias resueltas -->
+                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- Incidencias resueltas -->
+                          <img src="../assets/sol.svg" class="h-6 mb-1" alt="">
+                          <h1 class="text-xs leading-none font-semibold">555</h1>
+                          <h1 class="text-xxs leading-none">Solucionadas</h1>
+                      </div><!-- Incidencias resueltas -->
 
-                    <div class="w-1/5 flex flex-col justify-start items-center"><!-- Media tiempo Incidencias en proceso -->
-                        <img src="../assets/mupen.svg" class="h-6 mb-1" alt="">
-                        <h1 class="text-xs leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
-                        <h1 class="text-xxs leading-none">µ En proceso</h1>
-                    </div><!-- Media tiempo Incidencias en proceso -->
+                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- Media tiempo Incidencias en proceso -->
+                          <img src="../assets/mupen.svg" class="h-6 mb-1" alt="">
+                          <h1 class="text-xs leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
+                          <h1 class="text-xxs leading-none">µ En proceso</h1>
+                      </div><!-- Media tiempo Incidencias en proceso -->
 
-                    <div class="w-1/5 flex flex-col justify-start items-center"><!-- Media tiempo Incidencias en solucionadas -->
-                        <img src="../assets/musol.svg" class="h-6 mb-1" alt="">
-                        <h1 class="text-xs leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
-                        <h1 class="text-xxs leading-none">µ Sol.</h1>
-                    </div><!-- Media tiempo Incidencias en solucionadas -->
-                </div><!-- datos de la seccion-->
+                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- Media tiempo Incidencias en solucionadas -->
+                          <img src="../assets/musol.svg" class="h-6 mb-1" alt="">
+                          <h1 class="text-xs leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
+                          <h1 class="text-xxs leading-none">µ Sol.</h1>
+                      </div><!-- Media tiempo Incidencias en solucionadas -->
+                  </div><!-- datos de la seccion-->
+                </div>
+                <div class="w-full">
+                  <line-chart height="200px" :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'MC', data: {'2017-01-01': 1, '2017-01-02': 8}},{name: 'MP', data: {'2017-01-01': 23, '2017-01-02': 4}}]"></line-chart>
+                </div>
             </div><!-- contenedor de seccion-->
-
         </div><!-- Contenedor principal todas las secciones-->
 
     </div> <!-- Contenedor principal destino -->
@@ -104,8 +114,9 @@
 
 <script>
 export default {
-  setup() {},
-};
+  setup() {
+  }
+}
 </script>
 <style scoped>
 
