@@ -57,7 +57,7 @@
         </div><!-- Contenedor datos destino -->
 
         <div class="grid grid-cols-1 md:grid-cols-5 gap-0 justify-items-center">
-            <area-chart class="md:col-span-2" :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'Pendientes', data: {'2017-01-01 00:00:00 -0800': 1, '2017-01-02 00:00:00 -0800': 8}},{name: 'En proceso', data: {'2017-01-01 00:00:00 -0800': 23, '2017-01-02 00:00:00 -0800': 4}}, {name: 'Solucionado', data: {'2017-01-01 00:00:00 -0800': 5, '2017-01-02 00:00:00 -0800': 3}}]"></area-chart>
+            <line-chart class="md:col-span-2" :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'Pendientes', data: {'2017-01-01': 1, '2017-01-02': 8}},{name: 'En proceso', data: {'2017-01-01': 23, '2017-01-02': 4}}, {name: 'Solucionado', data: {'2017-01-01': 5, '2017-01-02': 3, '2017-01-03': 13, '2017-01-04': 23, '2017-01-05': 43, '2017-01-06': 3}}]"></line-chart>
             <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
               <h1 class="mb-2 font-semibold">Ranking creadas</h1>
               <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"><!-- Media tiempo Incidencias en solucionadas -->
@@ -126,7 +126,7 @@
                   </div><!-- datos de la seccion-->
                 </div>
                 <div class="w-full">
-                  <line-chart height="200px" :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'MC', data: {'2017-01-01': 1, '2017-01-02': 8}},{name: 'MP', data: {'2017-01-01': 23, '2017-01-02': 4}}]"></line-chart>
+                  <line-chart height="200px" :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'MC', data: {'2017-01-01': 10, '2017-01-02': 10}},{name: 'MP', data: {'2017-01-01': 23, '2017-01-02': 4}}]"></line-chart>
                 </div>
             </div><!-- contenedor de seccion-->
         </div><!-- Contenedor principal todas las secciones-->

@@ -2,7 +2,8 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/rm">RM</router-link> |
-    <router-link to="/america">America</router-link>
+    <router-link to="/america">America</router-link> |
+    <router-link to="/modal">Nuevo Modal</router-link> |
     <router-view/>
   </div>
 </template>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>example</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div
+      class="w-2/6 flex flex-col h-auto my-3 rounded cursor-pointer relative ring ring-green-200 bg-green-100"
+      onclick="toggleClassX('mostrar_mas_0', 'hidden'); 
+                    toggleClassX('titulo_incidencia_0', 'truncate'); toggleClassX('titulo_incidencia_0', 'mb-1'); toggleClassX('titulo_incidencia_0', 'text-justify');"
+    >
+      <!-- PARTE VISIBLE -->
+      <div class="w-full p-1 flex flex-none flex-col">
+        <h1 id="titulo_incidencia_0" class="font-semibold lowercase mb-1 text-justify">detalles de pintura</h1>
+        <div class="flex justify-between">
+          <div class="flex bg-white shadow py-1 px-2 rounded-full items-center text-bluegray-700">
+            <img src="https://ui-avatars.com/api/?format=svg&amp;rounded=true&amp;size=300&amp;background=2d3748&amp;color=edf2f7&amp;name=Eduardo Meneses" width="20" height="20" alt="" />
+            <p class="text-xs font-bold mx-1">Eduardo Meneses</p>
+          </div>
+          <div class="flex justify-around items-center">
+            <div class="w-5 h-5 flex items-center justify-center flex-none rounded-full mr-1 bg-purple-300 text-purple-600 text-xxs font-bold text-white text-center">
+              <h1>EP</h1>
+            </div>
+          </div>
+        </div>
+        <div class="flex leading-none text-xs px-1 mt-2 font-semibold flex-wrap">
+          <div class="uppercase py-1 px-2 bg-white rounded mr-2 mb-1 shadow">
+            <h1>ZHH</h1>
+          </div>
+          <div class="uppercase py-1 px-2 bg-white rounded mr-2 mb-1 shadow">
+            <h1>habitaciones</h1>
+          </div>
+          <div class="uppercase py-1 px-2 bg-white rounded mr-2 mb-1 shadow">
+            <h1>Piso 2</h1>
+          </div>
+          <div class="uppercase py-1 px-2 bg-white rounded mb-1 shadow">
+            <h1>habitacion 1102</h1>
+          </div>
+        </div>
+      </div>
+      <!-- PARTE VISIBLE -->
+      <!-- PARTE TOOGLEABLE -->
+      <div id="mostrar_mas_0" class="flex flex-col items-center justify-start p-2 text-xs w-full">
+        <div class="rounded w-full p-2 bg-green-200">
+          <h1 class="text-xxs text-center font-semibold">Sin Comentarios</h1>
+        </div>
+        <div class="flex px-2 mt-2 w-full">
+          <button class="py-2 px-2 rounded-l w-full bg-green-300 text-green-500 hover:bg-green-400 hover:text-green-200">Solucionar</button>
+        </div>
+      </div>
+      <!-- PARTE TOOGLEABLE -->
+    </div>
+  </body>
+</html>
