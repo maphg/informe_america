@@ -41,7 +41,7 @@
           <h1 class="text-2xl leading-none font-semibold">{{ a.total }}</h1>
           <h1 class="text-xs leading-none">Creadas</h1>
         </div>
-<<<<<<< HEAD
+
         <!-- incidencias creadas -->
 
         <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center">
@@ -166,64 +166,224 @@
             >
               <!-- icono seccion-->
               <h1 class="truncate">{{ b.seccion }}</h1>
-=======
-    </div><!-- Encabezados y selectores de fecha -->
+            </div>
+            <!-- Encabezados y selectores de fecha -->
 
-    <div class="flex flex-col w-full"> <!-- Contenedor principal destino -->
+            <div class="flex flex-col w-full">
+              <!-- Contenedor principal destino -->
 
-        <div class="text-3xl flex justify-center py-3"><!-- nombre destino -->
-            <h1>Riviera Maya</h1>
-        </div><!-- nombre destino -->
-
-        <hr class="border-gray-300 mb-4">
-
-        <div class="grid grid-cols-3 md:grid-cols-5 gap-0 w-full md:w-2/6 mx-auto justify-items-stretch py-4 rounded"><!-- Contenedor datos destino -->
-            
-            <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center"><!-- incidencias creadas -->
-                <img src="../assets/incidencias.svg" class="w-6 mb-1" alt="">
-                <h1 class="text-2xl leading-none font-semibold">555</h1>
-                <h1 class="text-xs leading-none">Creadas</h1>
-            </div><!-- incidencias creadas -->
-
-            <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center"><!-- Incidencias en proceso acumuladas -->
-                <img src="../assets/pen.svg" class="w-6 mb-1" alt="">
-                <h1 class="text-2xl leading-none font-semibold">555</h1>
-                <h1 class="text-xs leading-none">En proceso</h1>
-            </div><!-- Incidencias en proceso acumuladas -->
-
-            <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center"><!-- Incidencias resueltas -->
-                <img src="../assets/sol.svg" class="w-6 mb-1" alt="">
-                <h1 class="text-2xl leading-none font-semibold">555</h1>
-                <h1 class="text-xs leading-none">Solucionadas</h1>
-            </div><!-- Incidencias resueltas -->
-
-            <div class="md:hidden"></div>
-
-            <div class="grid grid-cols-1 gap-0 justify-items-center"><!-- Media tiempo Incidencias en proceso -->
-                <img src="../assets/mupen.svg" class="w-6 mb-1" alt="">
-                <h1 class="text-2xl leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
-                <h1 class="text-xs leading-none">µ En proceso</h1>
-            </div><!-- Media tiempo Incidencias en proceso -->
-
-            <div class="grid grid-cols-1 gap-0 justify-items-center"><!-- Media tiempo Incidencias en solucionadas -->
-                <img src="../assets/musol.svg" class="w-6 mb-1" alt="">
-                <h1 class="text-2xl leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
-                <h1 class="text-xs leading-none">µ Solucionadas</h1>
-            </div><!-- Media tiempo Incidencias en solucionadas -->
-
-        </div><!-- Contenedor datos destino -->
-
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-0 justify-items-center">
-            <line-chart class="md:col-span-2" :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'Pendientes', data: {'2017-01-01': 1, '2017-01-02': 8}},{name: 'En proceso', data: {'2017-01-01': 23, '2017-01-02': 4}}, {name: 'Solucionado', data: {'2017-01-01': 5, '2017-01-02': 3, '2017-01-03': 13, '2017-01-04': 23, '2017-01-05': 43, '2017-01-06': 3}}]"></line-chart>
-            <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
-              <h1 class="mb-2 font-semibold">Ranking creadas</h1>
-              <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"><!-- Media tiempo Incidencias en solucionadas -->
-                <h1 class="leading-none font-semibold">{{destinos}}</h1>
-                <h1 class="leading-none font-semibold">RM</h1>
-                <img src="../assets/incidencias.svg" class="w-4 mb-1" alt="">
-                <h2 class="leading-none font-semibold">2514</h2>
+              <div class="text-3xl flex justify-center py-3">
+                <!-- nombre destino -->
+                <h1>Riviera Maya</h1>
               </div>
->>>>>>> 26d2bc92e78f1ef54bfad134feca4641d7a94ff4
+              <!-- nombre destino -->
+
+              <hr class="border-gray-300 mb-4" />
+
+              <div
+                class="grid grid-cols-3 md:grid-cols-5 gap-0 w-full md:w-2/6 mx-auto justify-items-stretch py-4 rounded"
+              >
+                <!-- Contenedor datos destino -->
+
+                <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center">
+                  <!-- incidencias creadas -->
+                  <img
+                    src="../assets/incidencias.svg"
+                    class="w-6 mb-1"
+                    alt=""
+                  />
+                  <h1 class="text-2xl leading-none font-semibold">555</h1>
+                  <h1 class="text-xs leading-none">Creadas</h1>
+                </div>
+                <!-- incidencias creadas -->
+
+                <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center">
+                  <!-- Incidencias en proceso acumuladas -->
+                  <img src="../assets/pen.svg" class="w-6 mb-1" alt="" />
+                  <h1 class="text-2xl leading-none font-semibold">555</h1>
+                  <h1 class="text-xs leading-none">En proceso</h1>
+                </div>
+                <!-- Incidencias en proceso acumuladas -->
+
+                <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center">
+                  <!-- Incidencias resueltas -->
+                  <img src="../assets/sol.svg" class="w-6 mb-1" alt="" />
+                  <h1 class="text-2xl leading-none font-semibold">555</h1>
+                  <h1 class="text-xs leading-none">Solucionadas</h1>
+                </div>
+                <!-- Incidencias resueltas -->
+
+                <div class="md:hidden"></div>
+
+                <div class="grid grid-cols-1 gap-0 justify-items-center">
+                  <!-- Media tiempo Incidencias en proceso -->
+                  <img src="../assets/mupen.svg" class="w-6 mb-1" alt="" />
+                  <h1 class="text-2xl leading-none font-semibold">
+                    1420 <span class="font-normal text-xs leading-none">H</span>
+                  </h1>
+                  <h1 class="text-xs leading-none">µ En proceso</h1>
+                </div>
+                <!-- Media tiempo Incidencias en proceso -->
+
+                <div class="grid grid-cols-1 gap-0 justify-items-center">
+                  <!-- Media tiempo Incidencias en solucionadas -->
+                  <img src="../assets/musol.svg" class="w-6 mb-1" alt="" />
+                  <h1 class="text-2xl leading-none font-semibold">
+                    1420 <span class="font-normal text-xs leading-none">H</span>
+                  </h1>
+                  <h1 class="text-xs leading-none">µ Solucionadas</h1>
+                </div>
+                <!-- Media tiempo Incidencias en solucionadas -->
+              </div>
+              <!-- Contenedor datos destino -->
+
+              <div
+                class="grid grid-cols-1 md:grid-cols-5 gap-0 justify-items-center"
+              >
+                <line-chart
+                  class="md:col-span-2"
+                  :colors="['#fc8181', '#f6e05e', '#68d391']"
+                  :download="true"
+                  :data="[
+                    {
+                      name: 'Pendientes',
+                      data: { '2017-01-01': 1, '2017-01-02': 8 },
+                    },
+                    {
+                      name: 'En proceso',
+                      data: { '2017-01-01': 23, '2017-01-02': 4 },
+                    },
+                    {
+                      name: 'Solucionado',
+                      data: {
+                        '2017-01-01': 5,
+                        '2017-01-02': 3,
+                        '2017-01-03': 13,
+                        '2017-01-04': 23,
+                        '2017-01-05': 43,
+                        '2017-01-06': 3,
+                      },
+                    },
+                  ]"
+                ></line-chart>
+                <div
+                  class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center"
+                >
+                  <h1 class="mb-2 font-semibold">Ranking creadas</h1>
+                  <div
+                    v-for="destinos in 8"
+                    :key="destinos"
+                    class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"
+                  >
+                    <!-- Media tiempo Incidencias en solucionadas -->
+                    <h1 class="leading-none font-semibold">{{ destinos }}</h1>
+                    <h1 class="leading-none font-semibold">RM</h1>
+                    <img
+                      src="../assets/incidencias.svg"
+                      class="w-4 mb-1"
+                      alt=""
+                    />
+                    <h2 class="leading-none font-semibold">2514</h2>
+                  </div>
+                </div>
+                <!-- icono seccion-->
+                <div
+                  class="w-full h-full flex items-end justify-start flex-wrap"
+                >
+                  <!-- datos de la seccion-->
+                  <div class="w-1/5 flex flex-col justify-start items-center">
+                    <!-- incidencias creadas -->
+                    <img
+                      src="../assets/incidencias.svg"
+                      class="h-6 mb-1"
+                      alt=""
+                    />
+                    <h1 class="text-xs leading-none font-semibold">
+                      {{ b.total }}
+                    </h1>
+                    <h1 class="text-xxs leading-none">Creadas</h1>
+                  </div>
+                  <!-- incidencias creadas -->
+                  <div class="w-1/5 flex flex-col justify-start items-center">
+                    <!-- Incidencias en proceso acumuladas -->
+                    <img src="../assets/pen.svg" class="h-6 mb-1" alt="" />
+                    <h1 class="text-xs leading-none font-semibold">
+                      {{ b.totalPendientes }}
+                    </h1>
+                    <h1 class="text-xxs leading-none">En proceso</h1>
+                  </div>
+                  <!-- Incidencias en proceso acumuladas -->
+
+                  <div class="w-1/5 flex flex-col justify-start items-center">
+                    <!-- Incidencias resueltas -->
+                    <img src="../assets/sol.svg" class="h-6 mb-1" alt="" />
+                    <h1 class="text-xs leading-none font-semibold">
+                      {{ b.totalSolucionados }}
+                    </h1>
+                    <h1 class="text-xxs leading-none">Solucionadas</h1>
+                  </div>
+                  <!-- Incidencias resueltas -->
+
+                  <div class="w-1/5 flex flex-col justify-start items-center">
+                    <!-- Media tiempo Incidencias en proceso -->
+                    <img src="../assets/mupen.svg" class="h-6 mb-1" alt="" />
+                    <h1 class="text-xs leading-none font-semibold">
+                      {{ b.mediaPendientes }}
+                      <span class="font-normal text-xs leading-none">H</span>
+                    </h1>
+                    <h1 class="text-xxs leading-none">µ En proceso</h1>
+                  </div>
+                  <!-- Media tiempo Incidencias en proceso -->
+
+                  <div class="w-1/5 flex flex-col justify-start items-center">
+                    <!-- Media tiempo Incidencias en solucionadas -->
+                    <img src="../assets/musol.svg" class="h-6 mb-1" alt="" />
+                    <h1 class="text-xs leading-none font-semibold">
+                      {{ b.mediaSolucionados }}
+                      <span class="font-normal text-xs leading-none">H</span>
+                    </h1>
+                    <h1 class="text-xxs leading-none">µ Sol.</h1>
+                  </div>
+                  <!-- Media tiempo Incidencias en solucionadas -->
+                </div>
+                <!-- datos de la seccion-->
+              </div>
+              <div class="w-full">
+                {{ a.grafica }}
+                {{ "-\n" }}
+                {{ a.graficaSecciones[b.idSeccion] }}
+                <line-chart
+                  height="200px"
+                  :colors="['#fc8181', '#f6e05e', '#68d391']"
+                  :download="true"
+                  :data="a.graficaSecciones[b.idSeccion]"
+                ></line-chart>
+              </div>
+            </div>
+
+            <!-- contenedor de seccion-->
+          </div>
+          <!-- Contenedor principal todas las secciones-->
+        </div>
+        <!-- Contenedor principal destino -->
+      </div>
+      <!-- Contenedor principal -->
+
+      <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-3 mt-4">
+        <!-- Contenedor principal todas las secciones-->
+
+        <div
+          class="w-full bg-white shadow-sm rounded p-2 flex flex-col items-center justify-center"
+          v-for="item in 12"
+          :key="item"
+        >
+          <!-- contenedor de seccion-->
+          <div class="flex w-full">
+            <div
+              class="w-10 h-10 rounded flex items-center justify-center zic flex-none"
+            >
+              <!-- icono seccion-->
+              <h1>ZIC</h1>
             </div>
             <!-- icono seccion-->
             <div class="w-full h-full flex items-end justify-start flex-wrap">
@@ -231,18 +391,14 @@
               <div class="w-1/5 flex flex-col justify-start items-center">
                 <!-- incidencias creadas -->
                 <img src="../assets/incidencias.svg" class="h-6 mb-1" alt="" />
-                <h1 class="text-xs leading-none font-semibold">
-                  {{ b.total }}
-                </h1>
+                <h1 class="text-xs leading-none font-semibold">1420</h1>
                 <h1 class="text-xxs leading-none">Creadas</h1>
               </div>
               <!-- incidencias creadas -->
               <div class="w-1/5 flex flex-col justify-start items-center">
                 <!-- Incidencias en proceso acumuladas -->
                 <img src="../assets/pen.svg" class="h-6 mb-1" alt="" />
-                <h1 class="text-xs leading-none font-semibold">
-                  {{ b.totalPendientes }}
-                </h1>
+                <h1 class="text-xs leading-none font-semibold">555</h1>
                 <h1 class="text-xxs leading-none">En proceso</h1>
               </div>
               <!-- Incidencias en proceso acumuladas -->
@@ -250,9 +406,7 @@
               <div class="w-1/5 flex flex-col justify-start items-center">
                 <!-- Incidencias resueltas -->
                 <img src="../assets/sol.svg" class="h-6 mb-1" alt="" />
-                <h1 class="text-xs leading-none font-semibold">
-                  {{ b.totalSolucionados }}
-                </h1>
+                <h1 class="text-xs leading-none font-semibold">555</h1>
                 <h1 class="text-xxs leading-none">Solucionadas</h1>
               </div>
               <!-- Incidencias resueltas -->
@@ -261,8 +415,7 @@
                 <!-- Media tiempo Incidencias en proceso -->
                 <img src="../assets/mupen.svg" class="h-6 mb-1" alt="" />
                 <h1 class="text-xs leading-none font-semibold">
-                  {{ b.mediaPendientes }}
-                  <span class="font-normal text-xs leading-none">H</span>
+                  1420 <span class="font-normal text-xs leading-none">H</span>
                 </h1>
                 <h1 class="text-xxs leading-none">µ En proceso</h1>
               </div>
@@ -272,8 +425,7 @@
                 <!-- Media tiempo Incidencias en solucionadas -->
                 <img src="../assets/musol.svg" class="h-6 mb-1" alt="" />
                 <h1 class="text-xs leading-none font-semibold">
-                  {{ b.mediaSolucionados }}
-                  <span class="font-normal text-xs leading-none">H</span>
+                  1420 <span class="font-normal text-xs leading-none">H</span>
                 </h1>
                 <h1 class="text-xxs leading-none">µ Sol.</h1>
               </div>
@@ -282,18 +434,17 @@
             <!-- datos de la seccion-->
           </div>
           <div class="w-full">
-            {{ a.grafica }}
-            {{ "-\n" }}
-            {{ a.graficaSecciones[b.idSeccion] }}
             <line-chart
               height="200px"
               :colors="['#fc8181', '#f6e05e', '#68d391']"
               :download="true"
-              :data="a.graficaSecciones[b.idSeccion]"
+              :data="[
+                { name: 'MC', data: { '2017-01-01': 10, '2017-01-02': 10 } },
+                { name: 'MP', data: { '2017-01-01': 23, '2017-01-02': 4 } },
+              ]"
             ></line-chart>
           </div>
         </div>
-<<<<<<< HEAD
         <!-- contenedor de seccion-->
       </div>
       <!-- Contenedor principal todas las secciones-->
@@ -301,57 +452,6 @@
     <!-- Contenedor principal destino -->
   </div>
   <!-- Contenedor principal -->
-=======
-
-        <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-3  mt-4"><!-- Contenedor principal todas las secciones-->
-
-            <div class=" w-full bg-white shadow-sm rounded p-2 flex flex-col items-center justify-center" v-for="item in 12" :key="item"><!-- contenedor de seccion-->
-                <div class="flex w-full ">
-                  <div class="w-10 h-10 rounded flex items-center justify-center zic flex-none"><!-- icono seccion-->
-                    <h1>ZIC</h1>
-                  </div><!-- icono seccion-->
-                  <div class="w-full h-full flex items-end justify-start flex-wrap"><!-- datos de la seccion-->
-                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- incidencias creadas -->
-                          <img src="../assets/incidencias.svg" class="h-6 mb-1" alt="">
-                          <h1 class="text-xs leading-none font-semibold">1420</h1>
-                          <h1 class="text-xxs leading-none">Creadas</h1>
-                      </div><!-- incidencias creadas -->
-                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- Incidencias en proceso acumuladas -->
-                          <img src="../assets/pen.svg" class="h-6 mb-1" alt="">
-                          <h1 class="text-xs leading-none font-semibold">555</h1>
-                          <h1 class="text-xxs leading-none">En proceso</h1>
-                      </div><!-- Incidencias en proceso acumuladas -->
-
-                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- Incidencias resueltas -->
-                          <img src="../assets/sol.svg" class="h-6 mb-1" alt="">
-                          <h1 class="text-xs leading-none font-semibold">555</h1>
-                          <h1 class="text-xxs leading-none">Solucionadas</h1>
-                      </div><!-- Incidencias resueltas -->
-
-                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- Media tiempo Incidencias en proceso -->
-                          <img src="../assets/mupen.svg" class="h-6 mb-1" alt="">
-                          <h1 class="text-xs leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
-                          <h1 class="text-xxs leading-none">µ En proceso</h1>
-                      </div><!-- Media tiempo Incidencias en proceso -->
-
-                      <div class="w-1/5 flex flex-col justify-start items-center"><!-- Media tiempo Incidencias en solucionadas -->
-                          <img src="../assets/musol.svg" class="h-6 mb-1" alt="">
-                          <h1 class="text-xs leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h1>
-                          <h1 class="text-xxs leading-none">µ Sol.</h1>
-                      </div><!-- Media tiempo Incidencias en solucionadas -->
-                  </div><!-- datos de la seccion-->
-                </div>
-                <div class="w-full">
-                  <line-chart height="200px" :colors="['#fc8181','#f6e05e','#68d391']" :download="true" :data="[{name: 'MC', data: {'2017-01-01': 10, '2017-01-02': 10}},{name: 'MP', data: {'2017-01-01': 23, '2017-01-02': 4}}]"></line-chart>
-                </div>
-            </div><!-- contenedor de seccion-->
-        </div><!-- Contenedor principal todas las secciones-->
-
-    </div> <!-- Contenedor principal destino -->
-
-
-   </div><!-- Contenedor principal -->
->>>>>>> 26d2bc92e78f1ef54bfad134feca4641d7a94ff4
 </template>
 
 <script>
