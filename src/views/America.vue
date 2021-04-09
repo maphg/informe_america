@@ -217,8 +217,8 @@ export default {
     const fechaFin = ref("2021-01-03");
 
     const { arrayData, arraySecciones } = useFetch(
-      `http://10.30.30.133/maphg-beta/apis/reportes.php?action=reporteIncidenciasGlobal&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`,
-      `http://10.30.30.133/maphg-beta/apis/reportes.php?action=reporteIncidencias&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
+      `http://10.10.57.66/maphg-beta/apis/reportes.php?action=reporteIncidenciasGlobal&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`,
+      `http://10.10.57.66/maphg-beta/apis/reportes.php?action=reporteIncidencias&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
     );
 
     return { arrayData, arraySecciones, fechaInicio, fechaFin };
