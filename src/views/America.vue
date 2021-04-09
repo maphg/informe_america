@@ -15,11 +15,7 @@
     </div>
     <!-- Encabezados y selectores de fecha -->
 
-    <div
-      v-for="(a, index) in arrayData"
-      :key="index"
-      class="flex flex-col w-full"
-    >
+    <div v-for="(a, index) in arrayData" :key="index" class="flex flex-col w-full">
       <!-- Contenedor principal destino -->
 
       <div class="text-3xl flex justify-center py-3">
@@ -30,9 +26,7 @@
 
       <hr class="border-gray-300 mb-4" />
 
-      <div
-        class="grid grid-cols-3 md:grid-cols-5 gap-0 w-full md:w-2/6 mx-auto justify-items-stretch py-4 rounded"
-      >
+      <div class="grid grid-cols-3 md:grid-cols-5 gap-0 w-full md:w-2/6 mx-auto justify-items-stretch py-4 rounded">
         <!-- Contenedor datos destino -->
 
         <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center">
@@ -90,22 +84,11 @@
       </div>
       <!-- Contenedor datos destino -->
       <div class="grid grid-cols-1 md:grid-cols-5 gap-0 justify-items-center">
-        <line-chart
-          class="md:col-span-2"
-          :colors="['#fc8181', '#f6e05e', '#68d391']"
-          :download="true"
-          :data="a.grafica"
-        ></line-chart>
+        <line-chart class="md:col-span-2" :colors="['#fc8181', '#f6e05e', '#68d391']" :download="true" :data="a.grafica"></line-chart>
 
-        <div
-          class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center"
-        >
+        <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
           <h1 class="mb-2 font-semibold">Ranking creadas</h1>
-          <div
-            v-for="destinos in 8"
-            :key="destinos"
-            class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"
-          >
+          <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto">
             <!-- Media tiempo Incidencias en solucionadas -->
             <h1 class="leading-none font-semibold">{{ destinos }}</h1>
             <h1 class="leading-none font-semibold">RM</h1>
@@ -114,15 +97,9 @@
           </div>
         </div>
 
-        <div
-          class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center"
-        >
+        <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
           <h1 class="mb-2 font-semibold">Ranking solucionadas</h1>
-          <div
-            v-for="destinos in 8"
-            :key="destinos"
-            class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"
-          >
+          <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto">
             <!-- Media tiempo Incidencias en solucionadas -->
             <h1 class="leading-none font-semibold">{{ destinos }}</h1>
             <h1 class="leading-none font-semibold">RM</h1>
@@ -131,69 +108,99 @@
           </div>
         </div>
 
-        <div
-          class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center"
-        >
+        <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
           <h1 class="mb-2 font-semibold">Ranking µ tiempo solución</h1>
-          <div
-            v-for="destinos in 8"
-            :key="destinos"
-            class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"
-          >
+          <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto">
             <!-- Media tiempo Incidencias en solucionadas -->
             <h1 class="leading-none font-semibold">{{ destinos }}</h1>
             <h1 class="leading-none font-semibold">RM</h1>
             <img src="../assets/musol.svg" class="w-4 mb-1" alt="" />
-            <h2 class="leading-none font-semibold">
-              1420 <span class="font-normal text-xs leading-none">H</span>
-            </h2>
+            <h2 class="leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h2>
           </div>
         </div>
       </div>
 
       <!-- Contenedor principal todas las secciones-->
       <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-3 mt-4">
-        <div
-          class="w-full bg-white shadow-sm rounded p-2 flex flex-col items-center justify-center"
-          v-for="(b, index) in arraySecciones[a.idDestino]"
-          :key="index"
-        >
+        <div class="w-full bg-white shadow-sm rounded p-2 flex flex-col items-center justify-center" v-for="(b, index) in arraySecciones[a.idDestino]" :key="index">
           <!-- contenedor de seccion-->
           <div class="flex w-full">
-            <div
-              class="w-10 h-10 rounded flex items-center justify-center flex-none"
-              :class="[b.seccion.toLowerCase()]"
-            >
+            <div class="w-10 h-10 rounded flex items-center justify-center flex-none" :class="[b.seccion.toLowerCase()]">
               <!-- icono seccion-->
               <h1 class="truncate">{{ b.seccion }}</h1>
             </div>
+            <div class="w-full h-full flex items-end justify-start flex-wrap">
+              <!-- datos de la seccion-->
+              <div class="w-1/5 flex flex-col justify-start items-center">
+                <!-- incidencias creadas -->
+                <img src="../assets/incidencias.svg" class="h-6 mb-1" alt="" />
+                <h1 class="text-xs leading-none font-semibold">
+                  {{ b.total }}
+                </h1>
+                <h1 class="text-xxs leading-none">Creadas</h1>
+              </div>
+              <!-- incidencias creadas -->
+              <div class="w-1/5 flex flex-col justify-start items-center">
+                <!-- Incidencias en proceso acumuladas -->
+                <img src="../assets/pen.svg" class="h-6 mb-1" alt="" />
+                <h1 class="text-xs leading-none font-semibold">
+                  {{ b.totalPendientes }}
+                </h1>
+                <h1 class="text-xxs leading-none">En proceso</h1>
+              </div>
+              <!-- Incidencias en proceso acumuladas -->
+
+              <div class="w-1/5 flex flex-col justify-start items-center">
+                <!-- Incidencias resueltas -->
+                <img src="../assets/sol.svg" class="h-6 mb-1" alt="" />
+                <h1 class="text-xs leading-none font-semibold">
+                  {{ b.totalSolucionados }}
+                </h1>
+                <h1 class="text-xxs leading-none">Solucionadas</h1>
+              </div>
+              <!-- Incidencias resueltas -->
+
+              <div class="w-1/5 flex flex-col justify-start items-center">
+                <!-- Media tiempo Incidencias en proceso -->
+                <img src="../assets/mupen.svg" class="h-6 mb-1" alt="" />
+                <h1 class="text-xs leading-none font-semibold">
+                  {{ b.mediaPendientes }}
+                  <span class="font-normal text-xs leading-none">H</span>
+                </h1>
+                <h1 class="text-xxs leading-none">µ En proceso</h1>
+              </div>
+              <!-- Media tiempo Incidencias en proceso -->
+
+              <div class="w-1/5 flex flex-col justify-start items-center">
+                <!-- Media tiempo Incidencias en solucionadas -->
+                <img src="../assets/musol.svg" class="h-6 mb-1" alt="" />
+                <h1 class="text-xs leading-none font-semibold">
+                  {{ b.mediaSolucionados }}
+                  <span class="font-normal text-xs leading-none">H</span>
+                </h1>
+                <h1 class="text-xxs leading-none">µ Sol.</h1>
+              </div>
+              <!-- Media tiempo Incidencias en solucionadas -->
+            </div>
             <!-- Encabezados y selectores de fecha -->
 
+
+            <!-- contenedor de seccion-->
+          </div>
             <div class="flex flex-col w-full">
               <!-- Contenedor principal destino -->
-
-              <div class="text-3xl flex justify-center py-3">
-                <!-- nombre destino -->
-                <h1>Riviera Maya</h1>
-              </div>
-              <!-- nombre destino -->
 
               <hr class="border-gray-300 mb-4" />
 
               <div class="w-full">
                 <!-- {{ a.grafica }} -->
                 {{ a.graficaSecciones[b.idSeccion] }}
-                <line-chart
-                  height="200px"
-                  :colors="['#fc8181', '#f6e05e', '#68d391']"
-                  :download="true"
-                  :data="a.graficaSecciones[b.idSeccion]"
-                ></line-chart>
+                <line-chart height="200px" :colors="['#fc8181', '#f6e05e', '#68d391']" :download="true" :data="a.graficaSecciones[b.idSeccion]"></line-chart>
+
+                <!-- CREADAS EN ROJO => SON LAS INCIDENCIAS CREADAS ESE DIA -->
+                <!-- EN PROCESO EN AMARILLO => SON LAS INCIDENCIAS QUE NO SE HAN SOLUCIONADO EL ACUMULADO QUE SE VIENE ARRASTRANDO -->
               </div>
             </div>
-
-            <!-- contenedor de seccion-->
-          </div>
           <!-- Contenedor principal todas las secciones-->
         </div>
         <!-- Contenedor principal destino -->
@@ -214,18 +221,14 @@ export default {
   setup() {
     // Inputs Data
     const fechaInicio = ref("2021-01-01");
-    const fechaFin = ref("2021-01-03");
+    const fechaFin = ref("2021-01-09");
 
-    const { arrayData, arraySecciones } = useFetch(
-      `http://10.10.57.66/maphg-beta/apis/reportes.php?action=reporteIncidenciasGlobal&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`,
-      `http://10.10.57.66/maphg-beta/apis/reportes.php?action=reporteIncidencias&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
-    );
+    const { arrayData, arraySecciones } = useFetch(`http://10.10.57.66/maphg-beta/apis/reportes.php?action=reporteIncidenciasGlobal&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`, `http://10.10.57.66/maphg-beta/apis/reportes.php?action=reporteIncidencias&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`);
 
     return { arrayData, arraySecciones, fechaInicio, fechaFin };
   },
 };
 </script>
-
 
 <style scoped>
 .ranking {
