@@ -304,7 +304,7 @@ export default {
 
       try {
         const resp = await fetch(
-          `http://localhost/maphg-beta/apis/reportes.php?action=ranking&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
+          `https://www.maphg.com/america/apis/reportes.php?action=ranking&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
         );
         arrayRanking.value = await resp.json();
       } catch (error) {
@@ -318,13 +318,13 @@ export default {
       try {
         // DATA 1
         const res = await fetch(
-          `http://localhost/maphg-beta/apis/reportes.php?action=reporteIncidenciasGlobal&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
+          `https://www.maphg.com/america/apis/reportes.php?action=reporteIncidenciasGlobal&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
         );
         arrayData.value = await res.json();
 
         // DATA 2
         const res2 = await fetch(
-          `http://localhost/maphg-beta/apis/reportes.php?action=reporteIncidencias&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
+          `https://www.maphg.com/america/apis/reportes.php?action=reporteIncidencias&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
         );
         arraySecciones.value = await res2.json();
       } catch (error) {
