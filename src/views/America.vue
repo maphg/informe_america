@@ -8,14 +8,34 @@
       <h1 class="font-semibold text-lg uppercase">Incidencias</h1>
       <div class="flex items-center justify-center mt-4">
         <h1>De:</h1>
-        <input type="date" class="mx-2 bg-white p-2 rounded-md" />
+        <input
+          type="date"
+          class="mx-2 bg-white p-2 rounded-md"
+          v-model="fechaInicio"
+          @change="
+            fetchDatos();
+            ranking();
+          "
+        />
         <h1>a</h1>
-        <input type="date" class="mx-2 bg-white p-2 rounded-md" />
+        <input
+          type="date"
+          class="mx-2 bg-white p-2 rounded-md"
+          v-model="fechaFin"
+          @change="
+            fetchDatos();
+            ranking();
+          "
+        />
       </div>
     </div>
     <!-- Encabezados y selectores de fecha -->
 
-    <div v-for="(a, index) in arrayData" :key="index" class="flex flex-col w-full">
+    <div
+      v-for="(a, index) in arrayData"
+      :key="index"
+      class="flex flex-col w-full"
+    >
       <!-- Contenedor principal destino -->
 
       <div class="text-3xl flex justify-center py-3">
@@ -26,13 +46,17 @@
 
       <hr class="border-gray-300 mb-4" />
 
-      <div class="grid grid-cols-3 md:grid-cols-5 gap-0 w-full md:w-2/6 mx-auto justify-items-stretch py-4 rounded">
+      <div
+        class="grid grid-cols-3 md:grid-cols-5 gap-0 w-full md:w-2/6 mx-auto justify-items-stretch py-4 rounded"
+      >
         <!-- Contenedor datos destino -->
 
         <div class="grid grid-cols-1 gap-0 pb-2 justify-items-center">
           <!-- incidencias creadas -->
           <img src="../assets/incidencias.svg" class="w-6 mb-1" alt="" />
-          <h1 class="text-2xl leading-none font-semibold">{{ a.total }}</h1>
+          <h1 class="text-2xl leading-none font-semibold">
+            {{ a.pendientes }}
+          </h1>
           <h1 class="text-xs leading-none">Creadas</h1>
         </div>
 
@@ -42,7 +66,7 @@
           <!-- Incidencias en proceso acumuladas -->
           <img src="../assets/pen.svg" class="w-6 mb-1" alt="" />
           <h1 class="text-2xl leading-none font-semibold">
-            {{ a.pendientes }}
+            {{ a.total }}
           </h1>
           <h1 class="text-xs leading-none">En proceso</h1>
         </div>
@@ -84,48 +108,81 @@
       </div>
       <!-- Contenedor datos destino -->
       <div class="grid grid-cols-1 md:grid-cols-5 gap-0 justify-items-center">
-        <line-chart class="md:col-span-2" :colors="['#fc8181', '#f6e05e', '#68d391']" :download="true" :data="a.grafica"></line-chart>
+        <line-chart
+          class="md:col-span-2"
+          :colors="['#fc8181', '#f6e05e', '#68d391']"
+          :download="true"
+          :data="a.grafica"
+        ></line-chart>
 
-        <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
+        <div
+          class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center"
+        >
           <h1 class="mb-2 font-semibold">Ranking creadas</h1>
-          <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto">
+          <div
+            v-for="(r, index) in arrayRanking"
+            :key="index"
+            class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"
+          >
             <!-- Media tiempo Incidencias en solucionadas -->
-            <h1 class="leading-none font-semibold">{{ destinos }}</h1>
-            <h1 class="leading-none font-semibold">RM</h1>
+            <h1 class="leading-none font-semibold">{{ r.idDestino }}</h1>
+            <h1 class="leading-none font-semibold">{{ r.destino }}</h1>
             <img src="../assets/incidencias.svg" class="w-4 mb-1" alt="" />
-            <h2 class="leading-none font-semibold">2514</h2>
+            <h2 class="leading-none font-semibold">{{ r.creados }}</h2>
           </div>
         </div>
 
-        <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
+        <div
+          class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center"
+        >
           <h1 class="mb-2 font-semibold">Ranking solucionadas</h1>
-          <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto">
+          <div
+            v-for="(r, index) in arrayRanking"
+            :key="index"
+            class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"
+          >
             <!-- Media tiempo Incidencias en solucionadas -->
-            <h1 class="leading-none font-semibold">{{ destinos }}</h1>
-            <h1 class="leading-none font-semibold">RM</h1>
+            <h1 class="leading-none font-semibold">{{ r.idDestino }}</h1>
+            <h1 class="leading-none font-semibold">{{ r.destino }}</h1>
             <img src="../assets/sol.svg" class="w-4 mb-1" alt="" />
-            <h2 class="leading-none font-semibold">5485</h2>
+            <h2 class="leading-none font-semibold">{{ r.solucionados }}</h2>
           </div>
         </div>
 
-        <div class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center">
+        <div
+          class="w-full py-4 grid grid-cols-1 mt-4 md:mt-0 gap-0 justify-items-center"
+        >
           <h1 class="mb-2 font-semibold">Ranking µ tiempo solución</h1>
-          <div v-for="destinos in 8" :key="destinos" class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto">
+          <div
+            v-for="(r, index) in arrayRanking"
+            :key="index"
+            class="grid grid-cols-4 gap-0 justify-items-center ranking my-auto"
+          >
             <!-- Media tiempo Incidencias en solucionadas -->
-            <h1 class="leading-none font-semibold">{{ destinos }}</h1>
-            <h1 class="leading-none font-semibold">RM</h1>
+            <h1 class="leading-none font-semibold">{{ r.idDestino }}</h1>
+            <h1 class="leading-none font-semibold">{{ r.destino }}</h1>
             <img src="../assets/musol.svg" class="w-4 mb-1" alt="" />
-            <h2 class="leading-none font-semibold">1420 <span class="font-normal text-xs leading-none">H</span></h2>
+            <h2 class="leading-none font-semibold">
+              {{ r.mediaSolucionados }}
+              <span class="font-normal text-xs leading-none">H</span>
+            </h2>
           </div>
         </div>
       </div>
 
       <!-- Contenedor principal todas las secciones-->
       <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-3 mt-4">
-        <div class="w-full bg-white shadow-sm rounded p-2 flex flex-col items-center justify-center" v-for="(b, index) in arraySecciones[a.idDestino]" :key="index">
+        <div
+          class="w-full bg-white shadow-sm rounded p-2 flex flex-col items-center justify-center"
+          v-for="(b, index) in arraySecciones[a.idDestino]"
+          :key="index"
+        >
           <!-- contenedor de seccion-->
           <div class="flex w-full">
-            <div class="w-10 h-10 rounded flex items-center justify-center flex-none" :class="[b.seccion.toLowerCase()]">
+            <div
+              class="w-10 h-10 rounded flex items-center justify-center flex-none"
+              :class="[b.seccion.toLowerCase()]"
+            >
               <!-- icono seccion-->
               <h1 class="truncate">{{ b.seccion }}</h1>
             </div>
@@ -135,7 +192,7 @@
                 <!-- incidencias creadas -->
                 <img src="../assets/incidencias.svg" class="h-6 mb-1" alt="" />
                 <h1 class="text-xs leading-none font-semibold">
-                  {{ b.total }}
+                  {{ b.totalPendientes }}
                 </h1>
                 <h1 class="text-xxs leading-none">Creadas</h1>
               </div>
@@ -144,7 +201,7 @@
                 <!-- Incidencias en proceso acumuladas -->
                 <img src="../assets/pen.svg" class="h-6 mb-1" alt="" />
                 <h1 class="text-xs leading-none font-semibold">
-                  {{ b.totalPendientes }}
+                  {{ b.total }}
                 </h1>
                 <h1 class="text-xxs leading-none">En proceso</h1>
               </div>
@@ -184,23 +241,25 @@
             </div>
             <!-- Encabezados y selectores de fecha -->
 
-
             <!-- contenedor de seccion-->
           </div>
-            <div class="flex flex-col w-full">
-              <!-- Contenedor principal destino -->
+          <div class="flex flex-col w-full">
+            <!-- Contenedor principal destino -->
 
-              <hr class="border-gray-300 mb-4" />
+            <hr class="border-gray-300 mb-4" />
 
-              <div class="w-full">
-                <!-- {{ a.grafica }} -->
-                {{ a.graficaSecciones[b.idSeccion] }}
-                <line-chart height="200px" :colors="['#fc8181', '#f6e05e', '#68d391']" :download="true" :data="a.graficaSecciones[b.idSeccion]"></line-chart>
+            <div class="w-full">
+              <line-chart
+                height="200px"
+                :colors="['#fc8181', '#f6e05e', '#68d391']"
+                :download="true"
+                :data="a.graficaSecciones[b.idSeccion]"
+              ></line-chart>
 
-                <!-- CREADAS EN ROJO => SON LAS INCIDENCIAS CREADAS ESE DIA -->
-                <!-- EN PROCESO EN AMARILLO => SON LAS INCIDENCIAS QUE NO SE HAN SOLUCIONADO EL ACUMULADO QUE SE VIENE ARRASTRANDO -->
-              </div>
+              <!-- CREADAS EN ROJO => SON LAS INCIDENCIAS CREADAS ESE DIA -->
+              <!-- EN PROCESO EN AMARILLO => SON LAS INCIDENCIAS QUE NO SE HAN SOLUCIONADO EL ACUMULADO QUE SE VIENE ARRASTRANDO -->
             </div>
+          </div>
           <!-- Contenedor principal todas las secciones-->
         </div>
         <!-- Contenedor principal destino -->
@@ -216,16 +275,73 @@
 
 <script>
 import { ref } from "vue";
-import { useFetch } from "../hooks/useFetch";
+
 export default {
   setup() {
-    // Inputs Data
-    const fechaInicio = ref("2021-01-01");
-    const fechaFin = ref("2021-01-09");
+    var fecha = new Date();
+    var mes = fecha.getMonth() + 1;
+    var dia = fecha.getDate();
+    var ano = fecha.getFullYear();
+    if (dia < 10) dia = "0" + dia;
+    if (mes < 10) mes = "0" + mes;
+    const fechaFin = ref(ano + "-" + mes + "-" + dia);
 
-    const { arrayData, arraySecciones } = useFetch(`http://10.10.57.66/maphg-beta/apis/reportes.php?action=reporteIncidenciasGlobal&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`, `http://10.10.57.66/maphg-beta/apis/reportes.php?action=reporteIncidencias&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`);
+    fecha.setDate(fecha.getDate() - 7);
+    var mes = fecha.getMonth() + 1;
+    var dia = fecha.getDate();
+    var ano = fecha.getFullYear();
+    if (dia < 10) dia = "0" + dia;
+    if (mes < 10) mes = "0" + mes;
+    const fechaInicio = ref(ano + "-" + mes + "-" + dia);
 
-    return { arrayData, arraySecciones, fechaInicio, fechaFin };
+    // ARRAYS
+    const arrayData = ref([]);
+    const arraySecciones = ref([]);
+    const arrayRanking = ref([]);
+
+    const ranking = async () => {
+      console.log(fechaInicio.value, fechaFin.value);
+
+      try {
+        const resp = await fetch(
+          `http://localhost/maphg-beta/apis/reportes.php?action=ranking&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
+        );
+        arrayRanking.value = await resp.json();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    ranking();
+
+    const fetchDatos = async () => {
+      console.log(fechaInicio.value, fechaFin.value);
+      try {
+        // DATA 1
+        const res = await fetch(
+          `http://localhost/maphg-beta/apis/reportes.php?action=reporteIncidenciasGlobal&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
+        );
+        arrayData.value = await res.json();
+
+        // DATA 2
+        const res2 = await fetch(
+          `http://localhost/maphg-beta/apis/reportes.php?action=reporteIncidencias&idDestino=1&idUsuario=1&fechaInicio=${fechaInicio.value}&fechaFin=${fechaFin.value}`
+        );
+        arraySecciones.value = await res2.json();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDatos();
+
+    return {
+      arrayData,
+      arraySecciones,
+      arrayRanking,
+      fechaInicio,
+      fechaFin,
+      ranking,
+      fetchDatos,
+    };
   },
 };
 </script>
